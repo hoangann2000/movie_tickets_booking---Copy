@@ -1,0 +1,205 @@
+#hethongrap {
+  padding-left: 130px;
+}
+.rap_container {
+  box-shadow: 2px 0 15px 1px rgba(2, 2, 2, 0.348);
+  max-width: 1250px;
+  margin-bottom: 40px;
+  padding: 25px;
+  border-radius: 10px;
+  transition: all 0.5s;
+  &:hover {
+    transition: all 0.5s;
+    transform: scale(1.01);
+  }
+  .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab,
+  .ant-tabs-left > div > .ant-tabs-nav .ant-tabs-tab,
+  .ant-tabs-right > .ant-tabs-nav .ant-tabs-tab,
+  .ant-tabs-right > div > .ant-tabs-nav .ant-tabs-tab .AAA:hover {
+    padding-left: 0 !important;
+  }
+  .ant-tabs-tab-active {
+    transition: all 0.6s;
+    opacity: 1;
+  }
+  .ant-tabs-nav-list {
+    height: 600px;
+    overflow: hidden;
+    overflow-y: scroll;
+    .ant-tabs-tab-btn {
+      img {
+        width: 50px;
+      }
+    }
+  }
+  .ant-tabs-content {
+    .ant-tabs-content-left {
+      max-width: 720px;
+      height: 600px;
+      overflow: hidden;
+      overflow-y: scroll;
+    }
+  }
+  .img_right {
+    width: 80px;
+    height: 80px;
+  }
+  .name_film {
+    font-size: 17px;
+  }
+  .icon_heart {
+    color: red;
+    font-size: 11px;
+  }
+  .title_filmhot {
+    color: red;
+    font-size: 11px;
+  }
+}
+
+.title_hethong {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+.rap_container .ant-tabs-tab {
+  opacity: 0.4;
+  padding: 0;
+}
+
+.title_rap {
+  transition: all 0.3s;
+}
+.title_rap:hover {
+  transition: all 0.5s;
+  color: #1890ff;
+}
+/* ss */
+.ant-tabs-nav-more {
+  display: none;
+}
+
+/* LỊCH CHIEU */
+.lichchieu {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.lichchieu_item {
+  padding: 5px;
+  margin-left: 20px;
+}
+.lichchieu_time {
+  opacity: 0.5;
+  font-weight: 500;
+  // padding: 2px 3px;
+  border-radius: 10px;
+  border: 2px solid white;
+  transition: all 0.2s;
+  &:hover {
+    transition: all 0.5s;
+    border: 2px solid #5cbd2b7e;
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 740px) {
+  #hethongrap {
+    padding: 10px;
+    .ant-tabs-tab {
+      padding: 0;
+    }
+    .rap_container {
+      padding: 10px;
+      margin: 0;
+      .ant-tabs-tabpane {
+        padding-left: 5px;
+      }
+      .ant-tabs-nav {
+        .ant-tabs-nav-wrap {
+          .ant-tabs-nav-list {
+            height: 300px;
+            max-width: 140px;
+            .ant-tabs-tab-btn {
+              .title_rap {
+                font-size: 8px;
+              }
+              .title_chitiet {
+                font-size: 8px;
+              }
+              img {
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+        }
+      }
+      .ant-tabs-nav-list {
+        height: 300px;
+        overflow: hidden;
+        overflow-y: scroll;
+      }
+      .ant-tabs-content {
+        .ant-tabs-content-left {
+          height: 300px;
+        }
+      }
+      .lichchieu {
+        width: 100px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(10, 20px);
+        max-height: 40px;
+        overflow-y: scroll;
+        .lichchieu_item {
+          font-size: 7px;
+          padding: 2px;
+          margin-left: 2px;
+        }
+      }
+      .img_right {
+        width: 35px;
+        height: 35px;
+      }
+      .name_film {
+        width: 100px;
+        font-size: 10px;
+      }
+      .rate {
+        .icon_heart {
+          color: red;
+          font-size: 7px;
+        }
+        .title_filmhot {
+          color: red;
+          font-size: 7px;
+        }
+      }
+      .title_add {
+        width: 100px;
+        font-size: 7px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1024px) {
+  #hethongrap {
+    padding: 15px;
+    .lichchieu {
+      width: 170px;
+      max-height: 80px;
+      overflow-y: scroll;
+      grid-template-columns: repeat(2, 1fr);
+      .lichchieu_item {
+        padding: 2px;
+        margin-left: 2px;
+      }
+    }
+    .rap_container {
+      margin: 0;
+      .ant-tabs-nav-list {
+        max-width: 300px;
+        overflow: hidden;
+        overflow-y: scroll;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.footer__left{
+    color: rgba(40, 38, 38, 0.9);
+    .logo_movie{
+    max-height: 150px;
+    max-width: 150px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    }
+    .contact_title{
+        font-size: 15px;
+        font-weight: 700;
+    }
+    .contact_item{
+        li{
+            cursor: pointer;
+            transition: all .5s;
+            &:hover{
+                transition: all .5s;
+                color: rgba(255, 0, 0, 0.4);
+            }
+            i{
+            margin-right: 10px;
+            font-size: 20px;
+            }
+            padding-bottom: 10px;
+        }
+    }
+
+}

@@ -1,0 +1,41 @@
+.userlogin{
+    display: flex;
+    align-items: center;
+    .title_right{
+        font-size: 15px;
+        color: white;
+        padding-right: 25px;
+    }
+    .img_info{
+        width: 50px;
+        border-radius: 50%;
+    }
+    .dropdown{
+        .dropdown-menu{
+            left: -160px !important
+        }
+    }
+    .title_login{
+        background-color: transparent;
+        font-size: 15px;
+        color: white;
+        font-weight: 700;
+        padding: 0 10px;
+        transition: all .5s;
+        &:hover{
+            transition: all .5s;
+            color: greenyellow;
+        }
+    }
+    .modal_tongle{
+        display: block;
+        max-height: 600px;
+        border-radius: 15px;
+        padding: 20px;
+        background-color: rgb(156, 152, 127);
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translate(-50%,0);
+    }
+}

@@ -1,0 +1,70 @@
+.title_register{
+    font-size: 35px;
+    margin-bottom: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.139);
+}
+.Rigister{
+    background-image: url(http://1.bp.blogspot.com/-GRxSdbZAq-A/Ucmb3Rr13bI/AAAAAAAAA1o/wH-Jd45hOTY/s1600/hinh-nen-may-tinh-poster-phim-10.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top ;
+    display: flex;
+    .Rigister_left{
+        width: 65%;
+    }
+    .Rigister_right{
+        // border-radius: 15px;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.5);
+        padding-bottom: 25px;
+        margin: 25px;
+        .title_right{
+            margin-top: 23px;
+            text-align: center;
+            font-size: 23px;
+        }
+        .right_top{
+            display: flex;
+            padding: 0 10px;
+            border-radius: 15px 15px 0 0;
+            background: rgba(172, 255, 47, 0.5);
+            img{
+                width: 130px;
+            }
+            h1{
+                display: flex;
+                font-weight: 700;
+                margin-left: 15px;
+                text-align: center;
+                font-size: 20px;
+                padding-top: 25px;
+                margin-bottom: 0;
+            justify-content: center;
+            align-items: center;
+            }
+        }
+        .form_rigister{
+            padding-top: 20px;
+            .form-group{
+                margin: 0 auto;
+                width: 350px;
+                margin-bottom: 10px;
+                input{
+                    border-radius: 7px;
+                }
+                label{
+                    margin-bottom: 0;
+                    font-weight: 500;
+                }
+            }
+            button{
+                margin-top: 20px;
+                margin-left: 23%;
+                
+
+            }
+        }
+    }
+}

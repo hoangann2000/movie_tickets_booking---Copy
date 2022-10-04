@@ -1,0 +1,89 @@
+.HEADER{
+    display: flex;
+    justify-content: center;
+    // z-index: 300;
+    .header_content{
+        // padding-top: 10px;
+        margin-top: 10px;
+        background-color: rgba(169, 165, 165, 0.4);
+        // background-color: rgba(245, 245, 245, 0.529);
+        border-radius: 30px;
+        padding: 0 16px;
+        position: fixed;
+        top: 0;
+        width: 80%;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        .header_left{
+            z-index: 5;
+            padding-left: 10px;
+        }
+        .header_center{
+            display: flex;
+            align-items: center;
+            padding-left: 40px;
+            .center_title{
+                font-size: 15px;
+                color: white;
+                font-weight: 700;
+                padding: 0 20px;
+                transition: all .5s;
+
+                &:hover{
+                    transition: all .5s;
+                    color: greenyellow;
+                }
+            }
+        }
+        .header_right{
+            display: flex;
+            align-items: center;
+            .title_login{
+                background-color: transparent;
+                font-size: 15px;
+                color: white;
+                font-weight: 700;
+                padding: 0 10px;
+                transition: all .5s;
+                &:hover{
+                    transition: all .5s;
+                    color: greenyellow;
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width:740px) and (max-width:1024px) {
+    .HEADER{
+        .header_content{
+            .header_left{
+                img{
+                    height: 50px;
+                    width: 50px;
+
+                }
+            }
+            .header_center{
+                padding: 0;
+                .center_title{
+                    padding: 0 10px;
+                    font-size: 10px;
+                }
+            }
+            .header_right{
+                .title_right{
+                    font-size:10px;
+                    padding-right: 10px;
+                    // margin-right: 5px;
+                }
+                .dropdown{
+                    img{
+                        height: 30px;
+                        width: 30px;
+                    }
+                }
+            }
+        }
+    }
+}

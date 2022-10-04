@@ -1,0 +1,100 @@
+.MovieContainer {
+  padding: 0 20px 20px 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.FILM__SAPCHIEU{
+  // position: relative;
+  .movieItem {
+    position: relative;
+    overflow: hidden;
+    transform: scale(1);
+    transition: all 0.4s linear;
+    padding: 20px 0 0 0;
+    z-index: 10;
+
+    &:hover{
+    transition: all 0.4s linear;
+    transform: scale(1.1);
+    z-index: 10;
+    }
+  }
+  .Title_bottom{
+    overflow: hidden;
+    padding-bottom: 3px;
+    position: relative;
+    margin-top: -5px;
+    padding-top: 5px;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(81deg, rgba(41,41,41,1) 0%, rgba(220,220,220,1) 47%, rgba(176,169,169,1) 99%);
+    z-index: 1;
+    .movieDanhGia{
+      display: flex;
+      justify-content: center;
+      .rating{
+        position: relative;
+        z-index: 20;
+        font-size: 15px;
+      }
+    }
+    &:hover{
+      .btn__chitiet{
+        transition: all .5s;
+        transform: translateX(110%)
+      }
+      .btn__mua{
+        transition: all .5s;
+        transform: translateX(-120%)
+      }
+    }
+    .btn__chitiet{
+      transition: all .5s;
+      position: absolute;
+      top: 12px;
+      left: -65px;
+    }
+    .btn__mua{
+      transition: all .5s;
+      position: absolute;
+      top: 12px;
+      right: -70px;
+    }
+    .button_Film{
+      background-color: rgba(0, 0, 0, 0.15);
+      font-weight: 750;
+      border-radius: 10px;
+      padding: 5px;
+      color: rgba(0, 0, 0, 0.65);
+      transition: all .5s;
+      &:hover{
+      transition: all .5s;
+      background-color: rgba(0, 0, 0, 0.3);
+      }
+    }
+    .movieName {
+      font-size: 15px;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.75);
+      font-weight: 800;
+    }
+    .movieDanhGia {
+      color: yellow;
+    }
+  }
+}
+.movieName {
+  color: beige;
+}
+.img_render {
+  width: 100%;
+  height: 350px;
+  border-radius: 10px;
+}
+
+
+@media only screen and (min-width:740px) and  (max-width:1024px) {
+ .MovieContainer{
+  padding: 0;
+ }
+}

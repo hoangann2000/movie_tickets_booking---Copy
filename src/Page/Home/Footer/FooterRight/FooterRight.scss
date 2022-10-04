@@ -1,0 +1,19 @@
+.footer_right{
+    .right_title{
+        margin-top: 80px;
+        font-size: 20px;
+    }
+    .ant-form-item{
+        margin-bottom: 15px;
+    }
+    .right_input{
+        border: 0px;
+        &:hover{
+        border: 0px;
+        }
+        border-radius: 6px;
+    }
+}
+@media screen and (max-width:740px) {
+   
+}

@@ -1,0 +1,67 @@
+.img_play_carousel {
+  background-color: transparent;
+  border: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+  transition: all 0.8s;
+  &:hover{
+    transition: all 0.8s;
+    opacity: 0.9;
+  }
+}
+.carousel_BG{
+  .carousel_banner{
+    .img__BG{
+      height: 870px;
+    }
+  }
+  .ant-carousel .slick-dots{
+    z-index: 0;
+  }
+}
+.youtube_trailer {
+  width: 850px;
+  height: 450px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.close_trailer {
+  position: absolute;
+  left: 72%;
+  top: 26%;
+  transform: translate(-50%, -50%);
+}
+@media only screen and (max-width:740px) {
+  
+}
+@media only screen and (min-width:740px) and  (max-width:1024px) {
+  .carousel_BG{
+    .carousel_banner{
+      .img__BG{
+        height: 400px;
+      }
+    }
+    .trailer{
+      .youtube_trailer {
+        max-height: 220px;
+        max-width: 415px;
+        position: absolute;
+        left: 50%;
+        top: 40%;
+
+      }
+    }
+    .close_trailer {
+      position: absolute;
+      left: 74%;
+      top: 20%;
+    }
+  }
+}
+
+

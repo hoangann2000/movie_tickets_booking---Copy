@@ -1,0 +1,32 @@
+
+$mobile: "only screen and (max-width: #{getBreakpoint("ipad-min")})";
+$tablet: "only screen and (min-width: #{getBreakpoint("ipad-min")}) and (max-width: #{getBreakpoint("ipad-max")})";
+
+@mixin responsive_mobile() {
+  @media #{$stiny__mobile} {
+    @content;
+  }
+}
+
+@mixin responsive_tablet() {
+  @media #{$tablet} {
+    @content;
+  }
+}
+
+
+@mixin responsive($screen) {
+  @if (map-has-key($map: $breakpoints, $key: $screen )) {
+    $value: map-get(
+      $map: $breakpoints,
+      $key: $screen,
+    );
+    
+    @media screen  and (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "`{$screen}` isn't in breakpoint";
+  }
+}
+

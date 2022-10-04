@@ -1,0 +1,215 @@
+@import "../connect";
+
+body {
+  p {
+    margin-bottom: auto;
+  }
+}
+
+.myContainer {
+  margin: auto;
+  max-width: 1160px;
+  width: 100%;
+}
+
+.book__ticket {
+  background-color: #000;
+  background-image: linear-gradient(180deg, transparent, #2c3e50 74%);
+  height: 100vh;
+  padding-top: 150px;
+  .book__left {
+    .screen {
+      position: relative;
+      width: 80%;
+      height: 15px;
+      margin-top: 15px;
+      background-color: #c7cdd3;
+      box-shadow: 0 5px 12px 4px rgb(233 236 240 / 57%);
+    }
+    .book__left-ghe {
+      padding-top: 50px;
+      padding-bottom: 30px;
+    }
+    .book__left-loaighe {
+      margin-left: 20px;
+      justify-content: center;
+      p {
+        color: #fff;
+        font-size: 15px;
+        font-weight: 500;
+        margin-right: 25px;
+        margin-top: 5px;
+      }
+
+      .ghe-chuaDat {
+        background-color: #002f4f;
+      }
+      .ghe-dangdat {
+        background-color: #0196aa;
+        box-shadow: inset 0 0 11px 4px #0b4a52;
+      }
+      .ghe-dadat {
+        background-color: #4d4d4d;
+      }
+      .ghe-khachdat {
+        background-color: #c72911 !important;
+        // cursor: no-drop;
+      }
+      .boxghe {
+        width: 35px;
+        height: 35px;
+        // background-color: red;
+        border-radius: 6px;
+        border: 1px solid #c7c6c7;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .book__right {
+    color: #fff;
+    .row {
+      background-color: #0a0f13;
+      box-shadow: 0 0 6px 1px #1b1b1b;
+      border-radius: 15px;
+      padding: 10px 30px;
+      margin: 20px 0;
+      align-items: center;
+    }
+    .info-film {
+      .info-img img {
+        width: 100px;
+        height: 130px;
+      }
+      .info-ve {
+        .info-name {
+          font-size: 25px;
+        }
+        .ngaychieu {
+          line-height: 30px;
+          .suatChieu__2D {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            background-image: linear-gradient(#3beb98, #188f57);
+            width: 50px;
+          }
+          .ngaygio {
+            font-size: 17px;
+            font-weight: 600;
+            color: #5cd4e4;
+          }
+        }
+      }
+    }
+
+    .info-rap {
+      .rap-img img {
+        border-radius: 50%;
+        width: 110px;
+        height: 110px;
+      }
+      .rap-name {
+        .rap-title {
+          font-size: 25px;
+        }
+        .small {
+          font-size: 15px;
+          color: rgb(218, 211, 211);
+        }
+        .ghe-dat {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .info-ghe {
+      .ghe-dat {
+        font-size: 18px;
+      }
+      .thoigian {
+        font-size: 18px;
+        border-left: 1px solid hsla(0, 0%, 100%, 0.7);
+      }
+      .tong__tien {
+        .tong__tien-left {
+          font-size: 18px;
+          width: 40%;
+          margin-bottom: 0;
+          margin-top: 3.15px;
+        }
+        .tong__tien-right {
+          font-size: 20px;
+          color: #5cd4e4;
+          font-weight: 700;
+          text-shadow: 0 0 10px rgb(164 219 214 / 54%);
+        }
+      }
+      .time {
+        color: #5cd4e4;
+        font-size: 28px;
+        font-weight: 700;
+      }
+    }
+    .btn-muave {
+      background-image: linear-gradient(-225deg, #22e1ff, #1d8fe1 48%, #625eb1);
+      width: 100%;
+      padding: 8px 0;
+      font-size: 20px;
+      font-weight: 600;
+      border-radius: 10px;
+    }
+  }
+}
+
+.ghe {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border: 1px solid #c7c6c7;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #002f4f;
+}
+
+.ghe-da-dat {
+  border: 1px solid #c7c6c7;
+  border-radius: 5px;
+  background-color: #4d4d4d;
+  pointer-events: none;
+}
+
+.ghe-dang-dat {
+  color: #fff;
+  transition: all 0.5s;
+  background-color: #0196aa;
+  box-shadow: inset 0 0 11px 4px #0b4a52;
+}
+
+.ghe-vip {
+  background-color: #c9880f;
+}
+
+.ghe-khach-dat {
+  background-color: #c72911 !important;
+  pointer-events: none;
+}
+
+.ghedd-tenghe {
+  color: #5cd4e4;
+  font-weight: 700;
+  font-size: 20px;
+  display: inline;
+  padding: 0 5px;
+}
+
+
+// responsive
+@media  only screen and (max-width:740px) {
+ 
+}
+
+@media  only screen and (min-width:740px) and (max-width: 1024px)  {
+
+ }

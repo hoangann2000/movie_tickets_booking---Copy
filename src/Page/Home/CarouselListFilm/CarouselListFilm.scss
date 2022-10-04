@@ -1,0 +1,36 @@
+
+ .BG_Film{
+  background-color: rgba(255, 255, 255, 0.346);
+ }
+ .BG_Film .nav-item .active {
+    border-bottom: 2px solid yellowgreen;
+    color: yellowgreen;
+  }
+  .splide .splide__pagination {
+    margin-bottom: -20px;
+  }
+  .button_Carousel {
+    background: none;
+    margin: 30px 0px 10px;
+    height: 45px;
+    width: 150px;
+    padding: 0;
+    border: 0px;
+    font-weight: 800;
+  }
+  .title_CA {
+    padding: 10px;
+    transition: all 0.4s linear;
+    &:hover{
+      transition: all 0.4s linear;
+      font-size: 15px;
+    }
+  }
+  @media only screen and (min-width:740px) and  (max-width:1024px) {
+    .MovieContainer{
+      padding: 0;
+    }
+    .button_Carousel {
+      margin-top: 0;
+    }
+  }
