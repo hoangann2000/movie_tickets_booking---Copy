@@ -13,5 +13,10 @@ export class QLRapService extends ServicebaseAxios {
   layLogoRapFooter = () => {
     return this.GET(`/api/QuanLyRap/LayThongTinHeThongRap`)
   }
+  layThongTinCumRap = (maHeThongRap) => {
+    return this.GET(
+      `/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`
+    );
+  };
 }
 export const quanLyRapService = new QLRapService();

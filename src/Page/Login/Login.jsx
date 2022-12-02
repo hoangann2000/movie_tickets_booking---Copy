@@ -9,7 +9,6 @@ import { DangNhapAction } from '../../Redux/action/QLUserAction';
 import { QLNDReducer } from '../../Redux/Reducers/NDReducers';
 
 export default function Login() {
-
     const { UserLogin } = useSelector((state) => state.QLNDReducer)
     // console.log(UserLogin, "lấy thành công")
     const dispatch = useDispatch()
@@ -19,8 +18,8 @@ export default function Login() {
             matKhau: '',
         },
         validationSchema: Yup.object({
-            taiKhoan: Yup.string().required("Tài khoản không được để trống").min(6, "Tối thiểu đủ 6 kí tự").max(20, "Tối đa 10 kí tự").matches(/^[A-Z a-z]+$/, "Tài khoản không được có kí tự đặc biệt"),
-            matKhau: Yup.string().matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,}$/, "Mật khẩu tối thiếu từ 6 kí tự (Gồm ít nhất 1 chữ in hoa,1 kí tự,1 số) ").required("Mật khẩu không được để trống"),
+            taiKhoan: Yup.string().required("Tài khoản không được để trống").min(6, "Tối thiểu đủ 6 kí tự").max(20, "Tối đa 10 kí tự"),
+            matKhau: Yup.string().required("Mật khẩu không được để trống"),
         }),
         onSubmit: values => {
             dispatch(DangNhapAction(values))

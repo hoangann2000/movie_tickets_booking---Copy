@@ -44,7 +44,11 @@ export const DangNhapAction = (thongTinND) => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                history.push(`home/${result.data.content.taiKhoan}`);
+                if (result.maLoaiNguoiDung !== "KhachHang") {
+                    history.push("/admin");
+                } else {
+                    history.push("/");
+                }
             }
         } catch (error) {
             console.log(error)

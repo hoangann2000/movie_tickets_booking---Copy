@@ -24,4 +24,17 @@ export default class ServicebaseAxios {
       },
     });
   };
+
+  DELETE = (url, id) => {
+    return axios({
+      method: "delete",
+      url: `${URL_API}/${url}`,
+      headers: {
+        TokenCybersoft: TOKEN,
+        "Authorization": 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
+      },
+    });
+  };
+
+
 }
