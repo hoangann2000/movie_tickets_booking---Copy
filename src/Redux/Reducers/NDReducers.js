@@ -1,5 +1,5 @@
 import { TOKEN_ND, USER_ND } from "../../Util/setting"
-import { CAP_NHAP, DANG_KY, DANG_NHAP, DANG_XUAT, THONG_TINND } from "../action/Type/TypeND"
+import { CAP_NHAP, DANG_KY, DANG_NHAP, DANG_XUAT, SET_DANH_SACH_NGUOI_DUNG, SET_THONG_TIN_TAI_KHOAN_ADMIN, THONG_TINND } from "../action/Type/TypeND"
 import { history } from '../../App';
 let user = null
 if (localStorage.getItem(USER_ND)) {
@@ -9,6 +9,10 @@ const initialState = {
     UserLogin: user,
     NDRegister: {},
     thongTinND: {},
+    arrUserDefault: [],
+
+    thongTinNguoiDung: {},
+    thongTinTaiKhoanAdmin: {},
 }
 console.log(initialState.UserLogin, "user")
 export const QLNDReducer = (state = initialState, action) => {
@@ -34,6 +38,12 @@ export const QLNDReducer = (state = initialState, action) => {
             return { ...state }
         case THONG_TINND:
             state.thongTinND = action.thongTinND
+            return { ...state }
+        case SET_DANH_SACH_NGUOI_DUNG:
+            state.arrUserDefault = action.arrUser
+            return { ...state }
+        case SET_THONG_TIN_TAI_KHOAN_ADMIN:
+            state.thongTinTaiKhoanAdmin = action.thongTinTaiKhoanAdmin
             return { ...state }
         default:
             return state

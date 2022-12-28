@@ -36,5 +36,16 @@ export default class ServicebaseAxios {
     });
   };
 
+  PUT = (url, thongtinND) => {
+    return axios({
+      method: "put",
+      url: `${URL_API}/${url}`,
+      data: thongtinND,
+      headers: {
+        TokenCybersoft: TOKEN,
+        "Authorization": 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
+      },
+    });
+  };
 
 }

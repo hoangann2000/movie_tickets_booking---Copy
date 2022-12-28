@@ -15,10 +15,13 @@ import Checkout from "./Page/Checkout/Checkout";
 import InfoAccount from "./Page/User/InfoAccount/InfoAccount";
 import InfoTicketBooked from "./Page/User/InfoTicketBooked/InfoTicketBooked";
 import { AdminTemplate } from "./templete/AdminTemplate/AdminTemplate";
-import Films from "../src/Page/Home/Admin/Films"
-import AddNew from "./Page/Home/Admin/AddNew/AddNew";
-import Edit from "./Page/Home/Admin/Edit/Edit";
-import Showtime from "./Page/Home/Admin/Showtime/Showtime";
+import Films from "./Page/Admin/Films/Films";
+import AddNew from "./Page/Admin/Films/AddNew/AddNew";
+import Edit from "./Page/Admin/Films/Edit/Edit";
+import ShowTime from "./Page/Admin/Films/Showtime/Showtime";
+import Users from "./Page/Admin/Users/Users";
+import AddUsers from "./Page/Admin/Users/AddUsers/AddUsers";
+import EditUsers from "./Page/Admin/Users/EditUsers/EditUsers";
 
 
 export const history = createBrowserHistory()
@@ -40,7 +43,11 @@ function App() {
       <AdminTemplate exact path='/admin/films' Component={Films} />
       <AdminTemplate exact path="/admin/films/addnew" Component={AddNew} />
       <AdminTemplate path="/admin/films/edit/:id" exact Component={Edit} />
-      <AdminTemplate exact path='/admin/films/showtime/:id' Component={Showtime} />
+      <AdminTemplate exact path='/admin/films/showtime/:id' Component={ShowTime} />
+
+      <AdminTemplate exact path='/admin/users' Component={Users} />
+      <AdminTemplate exact path='/admin/users/adduser' Component={AddUsers} />
+      <AdminTemplate axact path='/admin/users/edituser/:id' Component={EditUsers} />
     </Router>
   );
 }

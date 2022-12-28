@@ -10,7 +10,7 @@ import { useFormik } from "formik";
 import React, { useState } from "react";
 import moment from "moment";
 import { useDispatch } from "react-redux";
-import { GPOUP_ID } from '../../../../Util/setting'
+import { GPOUP_ID } from "../../../../Util/setting";
 import { themPhimUploadHinhAction } from "../../../../Redux/action/FilmAction";
 
 const AddNew = () => {
