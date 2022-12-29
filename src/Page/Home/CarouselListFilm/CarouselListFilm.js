@@ -15,7 +15,11 @@ export default function CarouselListFilm() {
   }, []);
   return (
     <div className="BG_Film">
-      <ul className="nav justify-content-center" id="myTab" role="tablist">
+      <ul
+        className="nav justify-content-center text-white"
+        id="myTab"
+        role="tablist"
+      >
         <li className="nav-item" role="presentation">
           <button
             className="button_Carousel nav-link active"

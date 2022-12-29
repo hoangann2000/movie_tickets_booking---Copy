@@ -1,11 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { Rate } from "antd";
 import { NavLink } from "react-router-dom";
-import './FilmDangChieu.scss'
+import "./FilmDangChieu.scss";
 export default function FilmDangChieu() {
   let { DSFilmDangChieu } = useSelector((state) => {
     return state.DSFilmRecucer;
@@ -26,7 +27,7 @@ export default function FilmDangChieu() {
               1024: {
                 perPage: 3,
                 width: "100%",
-              }
+              },
             },
           }}
           aria-label="React Splide Example"
@@ -45,25 +46,31 @@ export default function FilmDangChieu() {
                   <div className="Title_bottom">
                     <div>
                       <div className="movieDanhGia mb-0">
-                        <Rate className='rating' disabled defaultValue={item.danhGia / 2} />
+                        <Rate
+                          className="rating"
+                          disabled
+                          defaultValue={item.danhGia / 2}
+                        />
                       </div>
                       <h1 className="movieName pt-2"> {item.tenPhim}</h1>
                     </div>
                     {/* đánh giá code theo ngôi sao */}
-                    <div className="btn__chitiet">
+                    {/* <div className="btn__chitiet">
                       <NavLink
                         className="button_Film"
                         to={`/detail/${item.maPhim}`}
                       >
                         CHI TIẾT
                       </NavLink>
-                    </div>
+                    </div> */}
                     <div className="btn__mua">
                       <NavLink
                         className="button_Film"
                         to={`/detail/${item.maPhim}`}
                       >
-                        MUA VÉ
+                        <ShoppingCartOutlined
+                          style={{ color: "red", fontSize: "30px" }}
+                        />
                       </NavLink>
                     </div>
                   </div>

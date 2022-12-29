@@ -160,7 +160,7 @@ export default function Films() {
             </Button>
             <Search
                 className="mb-5"
-                placeholder="input search text"
+                placeholder="Input search text"
                 enterButton={<SearchOutlined />}
                 size="large"
                 onSearch={onSearch}

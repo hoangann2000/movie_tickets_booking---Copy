@@ -21,18 +21,20 @@
     }
   }
   .Title_bottom {
+    cursor: pointer;
     overflow: hidden;
     padding-bottom: 3px;
     position: relative;
     margin-top: -5px;
     padding-top: 5px;
     border-radius: 0 0 10px 10px;
-    background: linear-gradient(
-      81deg,
-      rgba(41, 41, 41, 1) 0%,
-      rgba(220, 220, 220, 1) 47%,
-      rgba(176, 169, 169, 1) 99%
-    );
+    // background: linear-gradient(
+    //   81deg,
+    //   rgba(41, 41, 41, 1) 0%,
+    //   rgba(220, 220, 220, 1) 47%,
+    //   rgba(176, 169, 169, 1) 99%
+    // );
+    background-color: white;
     z-index: 1;
     .movieDanhGia {
       display: flex;
@@ -50,26 +52,26 @@
       }
       .btn__mua {
         transition: all 0.5s;
-        transform: translateX(-120%);
+        transform: translateX(-150%);
       }
     }
     .btn__chitiet {
       transition: all 0.5s;
       position: absolute;
-      top: 12px;
+      top: 17px;
       left: -65px;
     }
     .btn__mua {
       transition: all 0.5s;
       position: absolute;
-      top: 12px;
+      top: 17px;
       right: -70px;
     }
     .button_Film {
       background-color: rgba(0, 0, 0, 0.15);
       font-weight: 750;
       border-radius: 10px;
-      padding: 5px;
+      padding: 10px;
       color: rgba(0, 0, 0, 0.65);
       transition: all 0.5s;
       &:hover {

@@ -6,96 +6,27 @@
   .container {
     max-width: 1200px;
   }
-  .newsfeed {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 430px 400px;
-    column-gap: 20px;
-    row-gap: 25px;
-    a{
-      font-size: 15px;
-      color: black;
-    }
-    .card_title{
-      font-size: 20px;
-      height: 50px;
-    }
-    .card-text{
-      max-height: 80px;
-    }
-    
-  }
-  .item0 {
-    grid-column: 1/4;
-    grid-row: 1/3;
-  }
-  .item5 {
-    grid-column: 3/5;
-    grid-row: 3/4;
-  }
-  .item0 img {
-    height: 690px;
-  }
-  .item2 img,
-  .item3 img,
-  .item4 img,
-  .item5 img {
-    height: 200px;
-  }
-  .card {
-    height: 100%;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 15px;
-    transition: all 0.5s;
-    border: 0px;
-    &:hover {
-      color: black;
-      transition: all 0.5s;
-      box-shadow: 5px 5px 10px 5px rgba(255, 255, 255, 0.3);
-      transform: scale(1.02);
-    }
-  }
-  /* btn */
-  .btn_news {
-    color: white;
-    background-color: rgba(255, 255, 255, 0.2);
-    font-size: 15px;
-    font-weight: 500;
-    padding: 10px;
-    margin: 20px 10px;
-    border-radius: 15px;
-    &:hover{
-      transition: all 0.5s;
-      color: greenyellow;
-    }
-   &.active{
-     color: greenyellow;
-     border: 1px solid greenyellow;
-     border-radius: 15px;
-   }
-  }
-}
-@media only screen and (min-width:740px) and  (max-width:1024px) {
-  .NEWS{
-    .newsfeed{
-    grid-template-rows: 300px 300px 300px;
-      .card-body{
-        // max-height: 150px;
-        height: 160px;
-        overflow: hidden;
-
-        .card-title{
-          font-size: 15px;
-        max-height: 50px;
-        }
-        .card-text{
-          font-size: 12px;
-          max-height: 90px;
-          overflow: hidden;
-        }
-      }
-    }
-  }
   
+}
+.advertisement{
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.btn-app{
+  background-color: #fb4226;
+  width: 250px;
+  text-align: center;
+  padding: 8px;
+  color:white;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  margin-top: 25px;
+  &:hover{
+    color: #fb4226;
+    background-color: transparent;
+    border: 1px solid #fb4226;
+
+  }
 }

@@ -5,31 +5,38 @@
     background-color: rgba(0, 0, 0, 0.139);
 }
 .Rigister{
-    background-image: url(http://1.bp.blogspot.com/-GRxSdbZAq-A/Ucmb3Rr13bI/AAAAAAAAA1o/wH-Jd45hOTY/s1600/hinh-nen-may-tinh-poster-phim-10.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: top ;
+    height: 110vh;
+    background-color: #041b2d;
+    display: flex;
+    justify-content: center;
     display: flex;
     .Rigister_left{
         width: 65%;
     }
     .Rigister_right{
         // border-radius: 15px;
-        border-radius: 15px;
-        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
+        padding: 20px 80px;
+        height: 97%;
+        // background-color: rgba(255, 255, 255, 0.5);
         padding-bottom: 25px;
+        border: 3px solid white;
+        box-shadow: rgba(248, 245, 245, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        padding-bottom: 150px;
         margin: 25px;
         .title_right{
-            margin-top: 23px;
+            margin-top: 25px;
             text-align: center;
             font-size: 23px;
+            color: white;
         }
         .right_top{
             display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 0 10px;
             border-radius: 15px 15px 0 0;
-            background: rgba(172, 255, 47, 0.5);
+            // background: rgba(172, 255, 47, 0.5);
             img{
                 width: 130px;
             }
@@ -48,11 +55,13 @@
         .form_rigister{
             padding-top: 20px;
             .form-group{
-                margin: 0 auto;
-                width: 350px;
-                margin-bottom: 10px;
+                // margin: 0 auto;
+                width: 450px;
+                color: white;
+                // margin-bottom: 10px;
                 input{
-                    border-radius: 7px;
+                    border-radius: 3px;
+                    margin-top: 7px;
                 }
                 label{
                     margin-bottom: 0;
@@ -60,8 +69,8 @@
                 }
             }
             button{
-                margin-top: 20px;
-                margin-left: 23%;
+                // margin-top: 20px;
+                // margin-left: 23%;
                 
 
             }
