@@ -34,14 +34,10 @@ export default function Register() {
     });
     return (
         <Fragment>
-            <h1 className='title_register'>CHÀO MỪNG BẠN ĐẾN VỚI CINEMA MOVIE GROUP I</h1>
             <div className="Rigister">
-                <div className="Rigister_left">
-                </div>
                 <div className='Rigister_right'>
                     <div className="right_top">
                         <img src="./img/logomovie.png" alt="" />
-                        <h1>NƠI THÕA SỨC ĐAM MÊ VỚI CÁC CỐT TRUYỆN LÔI CUỐN, HẤP DẪN</h1>
                     </div>
                     <h1 className='title_right'>Đăng Ký tài Khoản Thành Viên</h1>
                     <form onSubmit={formik.handleSubmit} className='form_rigister'>
@@ -85,14 +81,17 @@ export default function Register() {
                                 <div className="text-danger">{formik.errors.hoTen}</div>
                             ) : null}
                         </div>
-                        <button type='submit' className='btn btn-success'>Đăng Ký</button>
-                        <NavLink to="/login">
-                            <button type='button' className='btn btn-success'>Quay Lại Đăng Nhập</button>
+                        <div className='flex flex-col w-full'>
+                        <button type='submit' className='btn btn-succ'>Đăng Ký</button>
+                        <NavLink to="/login" className="flex items-center justify-center mt-4">
+                            <span className='text-white'> Bạn đã có tài khoản?</span>
+                            <button type='button' className='btn-sc'>Quay Lại Đăng Nhập</button>
                         </NavLink>
+                        </div>
                     </form>
                 </div>
             </div>
-            <FooterHome />
+            {/* <FooterHome /> */}
         </Fragment>
     )
 }

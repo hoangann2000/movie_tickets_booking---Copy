@@ -28,16 +28,15 @@ export default function Login() {
     });
     return (
         <Fragment>
-            <h1 className='title_login'>CHÀO MỪNG BẠN ĐẾN VỚI CINEMA MOVIE GROUP I</h1>
-            <div className="login">
-                <div className="login_left">
-                </div>
+            {/* <h1 className='title_login'>CHÀO MỪNG BẠN ĐẾN VỚI CINEMA MOVIE GROUP I</h1> */}
+            <div className="login flex justify-center items-center">
+            
                 <div className='login_right'>
                     <div className="right_top">
                         <img src="./img/logomovie.png" alt="" />
-                        <h1>NƠI THÕA SỨC ĐAM MÊ VỚI CÁC CỐT TRUYỆN LÔI CUỐN, HẤP DẪN</h1>
+                        {/* <h1>NƠI THÕA SỨC ĐAM MÊ VỚI CÁC CỐT TRUYỆN LÔI CUỐN, HẤP DẪN</h1> */}
                     </div>
-                    <h1 className='title_right'>Đăng Nhập Thành Viên</h1>
+                    <h1 className='title_right '>Đăng Nhập Thành Viên</h1>
                     <form onSubmit={formik.handleSubmit} className='form_login'>
                         <div className="form-group">
                             <label htmlFor="taiKhoan">Tài Khoản</label>
@@ -47,6 +46,7 @@ export default function Login() {
                                 <div className="text-danger">{formik.errors.taiKhoan}</div>
                             ) : null}
                         </div>
+                        <br/>
                         <div className="form-group">
                             <label htmlFor="matKhau">Mật Khẩu</label>
                             <input onChange={formik.handleChange}
@@ -55,19 +55,20 @@ export default function Login() {
                                 <div className="text-danger">{formik.errors.matKhau}</div>
                             ) : null}
                         </div>
-                        <div className='button_login'>
+                        <div className='button_login flex flex-col '>
 
-                            <button type='submit' className='btn btn-success'>Đăng Nhập</button>
+                            <button type='submit' className='btn btn-succ'>Đăng Nhập</button>
 
-                            <NavLink to="/register">
-                                <button type='button' className='btn btn-success'>Đăng Ký tài khoản</button>
+                            <NavLink to="/register" className="flex items-center justify-center mt-4">
+                                <span className='text-white'>Bạn chưa có tài khoản?</span>
+                                <button type='button' className='btn btn-sc'>Đăng Ký tài khoản</button>
                             </NavLink>
                         </div>
 
                     </form>
                 </div>
             </div>
-            <FooterHome />
+            {/* <FooterHome /> */}
         </Fragment>
     )
 }

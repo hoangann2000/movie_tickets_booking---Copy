@@ -1,8 +1,9 @@
 import React from "react";
-import { Rate } from 'antd'
+import { Rate } from "antd";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import "@splidejs/react-splide/css";
 // import { Options } from "@splidejs/splide";
 import "./FilmSapChieu.scss";
@@ -28,11 +29,9 @@ export default function FilmSapChieu() {
               1024: {
                 perPage: 3,
                 width: "100%",
-
-              }
+              },
             },
-          }
-          }
+          }}
           aria-label="React Splide Example"
         >
           {DSFilmSapChieu.map((item, index) => {
@@ -49,28 +48,34 @@ export default function FilmSapChieu() {
                   <div className="Title_bottom">
                     <div>
                       <div className="movieDanhGia mb-0">
-                        <Rate className='rating' disabled defaultValue={item.danhGia / 2} />
+                        <Rate
+                          className="rating"
+                          disabled
+                          defaultValue={item.danhGia / 2}
+                        />
                       </div>
                       <h1 className="movieName pt-2"> {item.tenPhim}</h1>
                     </div>
-                    <div className="btn__chitiet">
+                    {/* <div className="btn__chitiet">
                       <NavLink
                         className="button_Film"
                         to={`/detail/${item.maPhim}`}
                       >
                         CHI TIẾT
                       </NavLink>
-                    </div>
+                    </div> */}
                     <div className="btn__mua">
                       <NavLink
-                        className="button_Film"
+                        className="button_Film flex items-center "
                         to={`/detail/${item.maPhim}`}
                       >
-                        MUA VÉ
+                        {/* <span className="text-red-500">MUA VÉ</span> */}
+                        <ShoppingCartOutlined
+                          style={{ color: "red", fontSize: "30px" }}
+                        />
                       </NavLink>
                     </div>
                   </div>
-
                 </div>
               </SplideSlide>
             );

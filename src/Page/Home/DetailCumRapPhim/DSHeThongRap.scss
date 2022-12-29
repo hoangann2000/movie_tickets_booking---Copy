@@ -1,7 +1,10 @@
 #hethongrap {
   padding-left: 130px;
+  background-color: #041523;
+  padding-bottom: 40px;
 }
 .rap_container {
+  background-color: white;
   box-shadow: 2px 0 15px 1px rgba(2, 2, 2, 0.348);
   max-width: 1250px;
   margin-bottom: 40px;
@@ -59,7 +62,11 @@
 
 .title_hethong {
   font-size: 30px;
-  margin-bottom: 25px;
+  // margin-bottom: 25px;
+  text-align: center;
+  margin-right: 130px;
+  padding: 20px 0;
+  color: white;
 }
 .rap_container .ant-tabs-tab {
   opacity: 0.4;

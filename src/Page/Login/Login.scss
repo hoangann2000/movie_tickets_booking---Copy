@@ -3,32 +3,64 @@
     margin-bottom: 0;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.139);
+    
+}
+.btn-succ{
+    font-size: 25px;
+    background-color: #f47326;
+    color: white;
+    border: 1px solid transparent;
+    font-weight: 700;
+    height: 50px;
+    margin-top: 20px;
+    line-height: 1;
+    border-radius: 5px;
+    &:hover{
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+}
+.btn-sc{
+    color: #f47326;
+    text-decoration:underline;
+    &:hover{
+    text-decoration:underline;
+    color: #4893d3;
+    }
 }
 .login{
-    background-image: url(http://1.bp.blogspot.com/-GRxSdbZAq-A/Ucmb3Rr13bI/AAAAAAAAA1o/wH-Jd45hOTY/s1600/hinh-nen-may-tinh-poster-phim-10.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: top ;
+    // background-image: url(../../../public/img/backapp.jpg);
+    height: 100vh;
+    background-color: #041b2d;
     display: flex;
+    justify-content: center;
     .login_left{
         width: 65%;
     }
     .login_right{
-        border-radius: 15px;
-        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
+        height: 80%;
+        padding: 20px 50px;
+        // background-color: rgba(255, 255, 255, 0.5);
+        border: 3px solid white;
+        box-shadow: rgba(248, 245, 245, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
         padding-bottom: 150px;
         margin: 25px;
         .title_right{
             margin-top: 25px;
             text-align: center;
             font-size: 23px;
+            color: white;
         }
         .right_top{
             display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 0 10px;
             border-radius: 15px 15px 0 0;
-            background: rgba(172, 255, 47, 0.5);
+            // background: rgba(172, 255, 47, 0.5);
             img{
                 width: 130px;
             }
@@ -39,18 +71,20 @@
                 padding-top: 28px;
                 margin-bottom: 0;
                 text-align: center;
-            justify-content: center;
-            align-items: center;
+                justify-content: center;
+                align-items: center;
             }
         }
         .form_login{
             padding-top: 20px;
             .form-group{
                 margin: 0 auto;
-                width: 350px;
-                margin-bottom: 10px;
+                width: 450px;
+                // margin-bottom: 10px;
+                color: white;
                 input{
-                    border-radius: 7px;
+                    border-radius: 3px;
+                    margin-top: 7px;
                 }
                 label{
                     margin-bottom: 0;
