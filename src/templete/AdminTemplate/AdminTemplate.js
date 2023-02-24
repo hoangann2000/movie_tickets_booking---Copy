@@ -1,4 +1,4 @@
-import { UserOutlined, FileOutlined, LoginOutlined } from "@ant-design/icons";
+import { UserOutlined, FileOutlined, LoginOutlined, DollarOutlined, CalendarOutlined, HomeOutlined, SortDescendingOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import { Breadcrumb, Layout, Menu, Tabs } from "antd";
 import { Fragment, useEffect, useState } from "react";
@@ -28,12 +28,12 @@ export const AdminTemplate = (props) => {
   });
 
   if (!localStorage.getItem(USER_ND)) {
-    swal("Bạn không có quyền truy cập vào trang này!", "", "warning");
+    // swal("Bạn không có quyền truy cập vào trang này!", "", "warning");
     return <Redirect to="/" />;
   }
 
-  if (UserLogin.maLoaiNguoiDung !== "QuanTri") {
-    swal("Bạn không có quyền truy cập vào trang này!", "", "warning");
+  if (UserLogin.loai_nguoi_dung !== "QuanTri") {
+    // swal("Bạn không có quyền truy cập vào trang này!", "", "warning");
     return <Redirect to="/" />;
   }
 
@@ -68,7 +68,7 @@ export const AdminTemplate = (props) => {
         localStorage.removeItem(USER_ND);
         localStorage.removeItem(TOKEN);
         localStorage.removeItem("accessToken");
-        history.push("/home");
+        history.push("/");
         window.location.reload();
       }}
       className="text-800"
@@ -95,20 +95,31 @@ export const AdminTemplate = (props) => {
                   className="mt-3"
                 >
                   <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-                    <SubMenu key="sub2" icon={<UserOutlined />} title="Users">
+                    <SubMenu key="sub2" icon={<UserOutlined />} title="Tài Khoản">
                       <Menu.Item key="1" icon={<UserOutlined />}>
-                        <NavLink to="/admin/users">Users</NavLink>
+                        <NavLink to="/admin/users">Tài Khoản</NavLink>
                       </Menu.Item>
                       <Menu.Item key="2" icon={<UserOutlined />}>
-                        <NavLink to="/admin/users/adduser">Add user</NavLink>
+                        <NavLink to="/admin/users/adduser">Thêm Tài Khoản</NavLink>
                       </Menu.Item>
                     </SubMenu>
-                    <SubMenu key="sub1" icon={<FileOutlined />} title="Films">
+                    <SubMenu key="sub1" icon={<FileOutlined />} title="Phim">
                       <Menu.Item key="10" icon={<FileOutlined />}>
-                        <NavLink to="/admin/films">Films</NavLink>
+                        <NavLink to="/admin/films">Phim</NavLink>
                       </Menu.Item>
                       <Menu.Item key="11" icon={<FileOutlined />}>
-                        <NavLink to="/admin/films/addnew">Add new</NavLink>
+                        <NavLink to="/admin/films/addnew">Thêm Phim</NavLink>
+                      </Menu.Item>
+                    </SubMenu>
+                    <SubMenu key="sub3" icon={<DollarOutlined />} title="Doanh Thu">
+                      <Menu.Item key="3" icon={<CalendarOutlined />}>
+                        <NavLink to="/admin/revenue">Theo ngày</NavLink>
+                      </Menu.Item>
+                      <Menu.Item key="4" icon={<HomeOutlined />}>
+                        <NavLink to="/admin/doanhthurap">Theo rạp</NavLink>
+                      </Menu.Item>
+                      <Menu.Item key="5" icon={<SortDescendingOutlined />}>
+                        <NavLink to="/admin/doanhthuphim">Theo phim</NavLink>
                       </Menu.Item>
                     </SubMenu>
                     <SubMenu

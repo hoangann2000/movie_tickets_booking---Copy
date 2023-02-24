@@ -18,20 +18,19 @@ export default function ProFileUser(props) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     return (
         <div className='userlogin'>
-            <div className='title_right'>Xin Chào : {UserLogin.taiKhoan}</div>
+            <div className='title_right'>Xin Chào : {UserLogin.ho_ten}</div>
             <div className="dropdown">
                 <img className="img_info dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" src="https://haycafe.vn/wp-content/uploads/2021/11/Anh-avatar-dep-chat-lam-hinh-dai-dien.jpg" alt="" />
                 <div className="dropdown-menu">
                     <NavLink to='/info' onClick={() => {
                         setIsModalOpen(true)
                     }} className="dropdown-item" >Thông Tin Tài Khoản</NavLink>
-                    <a className="dropdown-item" href="#">Chuyển Quyền Amin</a>
                     <a onClick={() => {
                         dispatch({
                             type: DANG_XUAT,
                             dataDX: null
                         })
-                    }} className="dropdown-item" href="#">Đăng xuất</a>
+                    }} className="dropdown-item" href="">Đăng xuất</a>
                 </div>
             </div>
         </div >

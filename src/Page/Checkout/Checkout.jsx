@@ -2,16 +2,16 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Col, Row } from "antd";
 import "./Checkout.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { datGheAction, datVeAction, layChiTietPhongVeAction } from "../../Redux/action/QuanLyDatVeAction";
+import { datGheAction, datVeAction, layChiTietPhongVeAction, layGheDaDatAction, layGheTheoRapAction } from "../../Redux/action/QuanLyDatVeAction";
 import { DAT_VE } from "../../Redux/action/Type/QLDatVe";
 import Header from "../../Component/Header/Header";
 import FooterHome from "../Home/Footer/FooterHome";
 import { ACCESS_TOKEN } from "../../Redux/action/Type/TypeND";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
-import { History } from "history";
+import { History, parsePath } from "history";
 import { history } from "../../App";
 import { isDisabled } from "@testing-library/user-event/dist/utils";
-import { Redirect } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 import { USER_ND } from "../../Util/setting";
 import moment from "moment";
 import { times } from "lodash";
@@ -22,17 +22,20 @@ export default function Checkout(props) {
     let sortBy = require('lodash.sortby');
     const [disabled, setDisabled] = useState(true)
     const { UserLogin } = useSelector(state => state.QLNDReducer)
-    // console.log(UserLogin);
-
+    const {laychitietghe} = useSelector(state => state.QuanLyDatVeReducer)
+    const {layghedadat} = useSelector(state => state.QuanLyDatVeReducer)
+    const {lichchieu} = useSelector(state => state.DSFilmRecucer);
     const { chiTietPhongve, danhSachGheDangDat, danhSachGheKhachDat } = useSelector(state => state.QuanLyDatVeReducer);
     // console.log(danhSachGheDangDat);
     const { thongTinPhim, danhSachGhe } = chiTietPhongve
-
+    const {filmDetail} = useSelector(state => state.DSFilmRecucer);
     const dispatch = useDispatch()
     const [counter, setCounter] = useState((60 * 2));
+    const [chairs, setChairs] = useState([]);
     useEffect(() => {
-        const action = layChiTietPhongVeAction(props.match.params.id)
-        dispatch(action)
+        // const action = layChiTietPhongVeAction(props.match.params.id)
+        // dispatch(action)
+        dispatch(layGheTheoRapAction(props.match.params.id))
         counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
         if (counter === 0) {
             Swal.fire("Bạn đã giữ ghế quá lâu!", {
@@ -44,24 +47,50 @@ export default function Checkout(props) {
         }
     }, [counter])
 
+    console.log(window.location)
+    
+    useEffect(() => {
+        dispatch(layGheDaDatAction(props.match.params.id))
+          const newData = laychitietghe?.map((l) => {
+            if (l.tenGhe > 70) {
+              return { ...l, giaVe: 150000};
+            }
+            return { ...l, giaVe: 100000};
+          });
+          if (newData) setChairs(newData);
+      
+    },[])
+
+
     if (!localStorage.getItem(USER_ND)) {
         return <Redirect to={'/login'} />
     }
-
+    // console.log(filmDetail)
     const renderGhe = () => {
-        return danhSachGhe?.map((ghe, index) => {
+        // console.log(chairs)
+        return chairs?.map((ghe, index) => {
             // ! tạo 3 biến class
-            let ClassGheDaDat = ghe.daDat === true ? 'ghe-da-dat' : '';
-            let classGheVip = ghe.loaiGhe === 'Vip' ? 'ghe-vip' : '';
+            
+            // let ClassGheDaDat = ghe.ma_ghe === 1  ? 'ghe-da-dat' : '';
+            let classGheVip = ghe.giaVe === 150000 ? 'ghe-vip' : '';
             let ClassGheDangDat = '';
             let ClassGheKhachDat = '';
+            let ClassGheDaDat = '';
 
-            let indexGheKhachDat = danhSachGheKhachDat.findIndex(gheKhachDat => gheKhachDat.maGhe === ghe.maGhe);
+            layghedadat.map((ghedd) => {
+                if(ghedd.ten_ghe === ghe.tenGhe) {
+                   return ClassGheDaDat = 'ghe-da-dat'
+                }
+                return ClassGheDaDat
+            })
+            
+            // console.log('đã đặt',layghedadat)
+            // console.log(chairs)
 
-
+            let indexGheKhachDat = danhSachGheKhachDat.findIndex(gheKhachDat => gheKhachDat.ma_ghe === ghe.ma_ghe);
 
             // ! duyển mảng ghế đang đặt, nếu mà mã ghế đang đặt = mã ghế thì trả về -1 và gán class = 'ghedangdat' để hiển thị màu xanh
-            let indexGheDangDat = danhSachGheDangDat.findIndex(gheDangDat => gheDangDat.maGhe === ghe.maGhe);
+            let indexGheDangDat = danhSachGheDangDat.findIndex(gheDangDat => gheDangDat.ma_ghe === ghe.ma_ghe);
             if (indexGheKhachDat != -1) {
                 ClassGheKhachDat = 'ghe-khach-dat';
             }
@@ -70,7 +99,7 @@ export default function Checkout(props) {
                 ClassGheDangDat = 'ghe-dang-dat'
             }
 
-            if (ghe.daDat | ClassGheDangDat === 'ghe-dang-dat') {
+            if (ClassGheDaDat ==='ghe-da-dat' | ClassGheDangDat === 'ghe-dang-dat') {
                 classGheVip = '';
             }
 
@@ -84,21 +113,22 @@ export default function Checkout(props) {
                     }
                 )
             }} className={`ghe ${ClassGheDaDat} ${classGheVip} ${ClassGheDangDat} ${ClassGheKhachDat}`} key={index}>
-                {ghe.stt}
+                {ghe.tenGhe}
             </button>
 
         })
     }
 
     const datVe = () => {
-        let thongTinDatVe = {
-            maLichChieu: props.match.params.id,
-            danhSachVe: danhSachGheDangDat,
-        }
+        let laymaghe = danhSachGheDangDat.map((ghe,indenx) => {
+            return ghe
+        })
+       let  thongTinDatVe = laymaghe.map((value) => {
+            return {ma_ghe:value.ma_ghe,tai_khoan: UserLogin.tai_khoan,ma_lich_chieu:props.match.params.id,gia_ve: value.giaVe}
+        })
         dispatch(datVeAction(thongTinDatVe))
-        console.log(thongTinDatVe);
+        // console.log(thongTinDatVe)
     }
-
     const Modal = () => {
         Swal.fire({
             title: 'Vui lòng xác nhận đặt vé ?',
@@ -130,7 +160,6 @@ export default function Checkout(props) {
             }
         });
     }
-
     return (
         <Fragment>
             <Header />
@@ -162,23 +191,23 @@ export default function Checkout(props) {
                                     <div className="ghe-vip boxghe"></div>
                                     <p>Vip</p>
                                 </div>
-                                <div className="loaighe-vip d-flex">
+                                {/* <div className="loaighe-vip d-flex">
                                     <div className="ghe-khachdat boxghe"></div>
                                     <p>Khách đặt</p>
-                                </div>
+                                </div> */}
                             </div>
                         </Col>
 
                         <Col className="book__right" xs={22} sm={20} lg={10}>
                             <div className="info-film row">
                                 <div className="info-img col-4">
-                                    <img src={thongTinPhim?.hinhAnh} alt="" />
+                                    <img src={filmDetail?.hinhAnh} alt="" />
                                 </div>
                                 <div className="info-ve col-8">
-                                    <p className="info-name">{thongTinPhim?.tenPhim}</p>
+                                    <p className="info-name">{filmDetail?.tenPhim}</p>
                                     <div className="ngaychieu d-flex">
                                         <p className="suatChieu__2D mr-3">2D</p>
-                                        <p className="ngaygio">{thongTinPhim?.gioChieu} - {thongTinPhim?.ngayChieu} </p>
+                                        <p className="ngaygio">{moment(filmDetail.ngaykhoichieu).format('DD-MM-YYYY')} - {moment(filmDetail.ngaykhoichieu).format('hh:mm:ss')}</p>
                                     </div>
                                 </div>
                             </div>
@@ -187,22 +216,21 @@ export default function Checkout(props) {
                                     <img src="https://du-an-phim-80edb.web.app/assets/img/rap-demo.jpg" alt="" />
                                 </div>
                                 <div className="rap-name col-8">
-                                    <p className="rap-title">{thongTinPhim?.tenCumRap}</p>
+                                    <p className="rap-title">{props.match.params.tenRap}</p>
                                     {/* <p className="small">{thongTinPhim?.diaChi}</p> */}
                                 </div>
                             </div>
                             <div className="info-ghe row">
                                 <div className="col-7">
-                                    <p className="ghe-dat">{thongTinPhim?.tenRap} - Ghế Đang Đặt:</p>
+                                    <p className="ghe-dat">Rạp {props.match.params.id} - Ghế Đang Đặt:</p>
 
                                     {sortBy(danhSachGheDangDat, ['stt']).map((ghedd, index) => {
                                         return <Fragment key={index} >
-                                            <p className="ghedd-tenghe">{ghedd.stt}
+                                            <p className="ghedd-tenghe">{ghedd.tenGhe}
                                             </p>
                                             {(index + 1) % 4 == 0 ? <br /> : null}
                                         </Fragment>
                                     })}
-
                                     <div className="tong__tien d-flex">
                                         <p p className="tong__tien-left">Tổng tiền:</p>
                                         <p className="tong__tien-right">

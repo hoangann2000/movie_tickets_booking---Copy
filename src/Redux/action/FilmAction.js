@@ -33,10 +33,10 @@ export const themPhimUploadHinhAction = (formData) => {
   }
 }
 
-export const capNhatPhimUploadAction = (formData) => {
+export const capNhatPhimUploadAction = (id,formData) => {
   return async (dispatch2) => {
     try {
-      let result = await quanLyFilmService.capNhatPhimUpload(formData);
+      let result = await quanLyFilmService.capNhatPhimUpload(id,formData);
       swal("Cập nhật phim thành công!", "", "success");
     } catch (error) {
       swal("Cập nhật phim thành công!", "", "error");

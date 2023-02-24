@@ -8,19 +8,20 @@ export class QLFilmService extends ServicebaseAxios {
   };
   layDSFilm = (tenphim = "") => {
     if (tenphim.trim() != "") {
-      return this.GET(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=${GPOUP_ID}&tenPhim=${tenphim}`);
+      return this.GET(`/api/QuanLyPhim/LayDanhSachPhim?&tenPhim=${tenphim}`);
     }
-    return this.GET(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=${GPOUP_ID}`);
+    return this.GET(`/api/QuanLyPhim/LayDanhSachPhim`);
   };
 
+  
   themPhimUploadHinh = (formData) => {
-    return this.POST(`/api/QuanLyPhim/ThemPhimUploadHinh`, formData);
+    return this.POST(`/api/QuanLyPhim`, formData);
   }
-  capNhatPhimUpload = (formData) => {
-    return this.POST(`/api/QuanLyPhim/CapNhatPhimUpload`, formData);
+  capNhatPhimUpload = (id,formData) => {
+    return this.PUT(`/api/QuanLyPhim/CapNhatPhimUpload/${id}`, formData);
   };
   xoaPhim = (maPhim) => {
-    return this.DELETE(`/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`);
+    return this.DELETE(`/api/QuanLyPhim/XoaPhim/${maPhim}`);
   };
 }
 export const quanLyFilmService = new QLFilmService();

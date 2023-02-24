@@ -43,15 +43,13 @@ const Edit = (props) => {
             tenPhim: filmDetail.tenPhim,
             trailer: filmDetail.trailer,
             moTa: filmDetail.moTa,
-            maNhom: GPOUP_ID,
             ngayKhoiChieu: filmDetail.ngayKhoiChieu,
             danhGia: filmDetail.danhGia,
             hinhAnh: null,
         },
 
         onSubmit: (values) => {
-            values.maNhom = GPOUP_ID;
-
+            console.log(values)
             let formData = new FormData();
             for (let key in values) {
                 if (key !== "hinhAnh") {
@@ -63,7 +61,7 @@ const Edit = (props) => {
                 }
             }
 
-            dispatch(capNhatPhimUploadAction(formData));
+            dispatch(capNhatPhimUploadAction(props.match.params.id,formData));
         },
     });
 

@@ -31,7 +31,7 @@ export default function CarouselListFilm() {
             aria-controls="home"
             aria-selected="true"
           >
-            <span className="title_CA">Phim Sắp Chiếu</span>
+            <span className="title_CA">Phim Đang Chiếu</span>
           </button>
         </li>
         <li className="nav-item" role="presentation">
@@ -45,7 +45,7 @@ export default function CarouselListFilm() {
             aria-controls="profile"
             aria-selected="false"
           >
-            <span className="title_CA">Phim Đang Chiếu</span>
+            <span className="title_CA">Phim Sắp Chiếu</span>
           </button>
         </li>
       </ul>
@@ -56,7 +56,7 @@ export default function CarouselListFilm() {
           role="tabpanel"
           aria-labelledby="home-tab"
         >
-          <FilmSapChieu />
+          <FilmSapChieu />     
         </div>
         <div
           className="tab-pane fade"

@@ -1,0 +1,49 @@
+@import "../../../connect";
+
+.title {
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+  color: #333333; /* Màu chữ */
+  margin-bottom: 16px;
+  font-family: 'Helvetica Neue', Arial, sans-serif; 
+}
+.textlbl .ant-form-item-label label {
+    font-size: 18px;  
+    font-weight: 600;  
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+}
+
+// .textlbl .ant-form-horizontal .ant-form-item-control{
+//     padding-right: 20px;
+// }
+
+.body .ant-form-horizontal .ant-form-item-control {
+    padding-right: 100px;
+}
+
+.btn_search {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background: #318009;
+    padding: 7px 15px;
+    border-radius: 20px;
+}
+
+.body .ant-form-item { 
+    margin-bottom: -10px;
+}
+
+.text_total {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 30px 0;
+    text-align: center;
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+}
+
+.sum_price {
+    color: blue;
+  }
+

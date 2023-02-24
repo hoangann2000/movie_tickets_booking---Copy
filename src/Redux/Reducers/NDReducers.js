@@ -33,7 +33,7 @@ export const QLNDReducer = (state = initialState, action) => {
         case CAP_NHAP:
             state.UserLogin = action.dataCN
             localStorage.setItem(USER_ND, JSON.stringify(action.dataCN))
-            localStorage.setItem(TOKEN_ND, action.token.slice(8))
+            // localStorage.setItem(TOKEN_ND, action.token.slice(8))
             // console.log(state, "thông tin đã cập nhập")
             return { ...state }
         case THONG_TINND:

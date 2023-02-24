@@ -9,6 +9,7 @@ import React, { useState, Fragment } from 'react';
 export default function Header() {
 
     let { UserLogin } = useSelector((state) => state.QLNDReducer)
+    // console.log("==",UserLogin.email)
     const dispatch = useDispatch()
     // console.log(UserLogin, "lấy ok")
     return (

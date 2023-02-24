@@ -13,14 +13,14 @@ const { Search } = Input;
 export default function Users() {
 
     const { arrUserDefault } = useSelector(state => state.QLNDReducer)
-
+    
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(layDanhSachNguoiDungAction())
     }, [])
 
-
+    console.log(arrUserDefault)
     const columns = [
         {
             title: 'STT',
@@ -30,10 +30,6 @@ export default function Users() {
         {
             title: 'Tài khoản',
             dataIndex: 'taiKhoan',
-        },
-        {
-            title: 'Mật khẩu',
-            dataIndex: 'matKhau',
         },
         {
             title: 'Họ tên',
@@ -80,7 +76,7 @@ export default function Users() {
     return (
         <div className='container'>
 
-            <h3 className='text-4xl'>Quản lý người dùng</h3>
+            <h3 className='text-4xl text-center' style={{fontWeight: 700, lineHeight:1.3, letterSpacing:0.5, color: '#333333'}}>Quản lý người dùng</h3>
             <Button className='mb-5' onClick={() => {
                 history.push(('/admin/users/adduser'))
             }}>Thêm người dùng</Button>

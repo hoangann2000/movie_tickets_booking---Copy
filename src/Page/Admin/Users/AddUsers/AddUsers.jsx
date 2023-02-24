@@ -12,19 +12,17 @@ const AddUsers = () => {
 
     const formik = useFormik({
         initialValues: {
-            taiKhoan: "",
+            // tai_khoan: "",
             matKhau: "",
             hoTen: "",
             soDt: "",
             email: "",
-            maLoaiNguoiDung: "",
-
-            maNhom: GPOUP_ID,
+            loai_nguoi_dung: "",
         },
 
         onSubmit: (values) => {
-            values.maNhom = GPOUP_ID;
             dispatch(themNguoiDungAction(values));
+            console.log(values)
         },
     });
 
@@ -63,11 +61,17 @@ const AddUsers = () => {
                         <Radio.Button value="large">Large</Radio.Button>
                     </Radio.Group>
                 </Form.Item>
-                <Form.Item
+                {/* <Form.Item
                     name="taiKhoan"
                     label="Tài khoản"
                 >
                     <Input placeholder="Nhập tài khoản" onChange={formik.handleChange} />
+                </Form.Item> */}
+                <Form.Item
+                    name="email"
+                    label="Email"
+                >
+                    <Input placeholder="Nhập email" onChange={formik.handleChange} />
                 </Form.Item>
 
                 <Form.Item
@@ -97,19 +101,13 @@ const AddUsers = () => {
                         onChange={formik.handleChange}
                     />
                 </Form.Item>
-                <Form.Item
-                    name="email"
-                    label="Email"
-                >
-                    <Input placeholder="Nhập email" onChange={formik.handleChange} />
-                </Form.Item>
-
+          
                 <Form.Item label="Loại người dùng" >
                     <Select
                         placeholder="Chọn loại người dùng"
                         onChange={handleChangeOption("maLoaiNguoiDung")}
                     >
-                        <Select.Option value="KhachHang">Khách hàng</Select.Option>
+                        <Select.Option value="Khách Hàng">Khách hàng</Select.Option>
                         <Select.Option value="QuanTri">Quản trị</Select.Option>
                     </Select>
                 </Form.Item>

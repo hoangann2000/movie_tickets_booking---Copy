@@ -7,9 +7,15 @@ export class QLRapService extends ServicebaseAxios {
       `/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GPOUP_ID}`
     );
   };
+  // layThongTinLichChieuPhim = (maPhim) => {
+  //   return this.GET(`/api/QuanLyRap/LayThongTinLichChieuPhim?maPhim=${maPhim}&MaNhom=${GPOUP_ID}`);
+  // };
   layThongTinLichChieuPhim = (maPhim) => {
-    return this.GET(`/api/QuanLyRap/LayThongTinLichChieuPhim?maPhim=${maPhim}&MaNhom=${GPOUP_ID}`);
+    return this.GET(`/api/QuanLyRap/LayThongTinLichChieu?maPhim=${maPhim}`);
   };
+  layThongTinPhim = (maPhim) => {
+    return this.GET(`/api/QuanLyPhim/LayThongTinPhim/${maPhim}`)
+  }
   layLogoRapFooter = () => {
     return this.GET(`/api/QuanLyRap/LayThongTinHeThongRap`)
   }
@@ -18,5 +24,6 @@ export class QLRapService extends ServicebaseAxios {
       `/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`
     );
   };
+
 }
 export const quanLyRapService = new QLRapService();

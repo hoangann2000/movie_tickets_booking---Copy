@@ -1,6 +1,8 @@
 .lichsuve {
   overflow-y: scroll;
   height: 500px;
+  width: 100%;
+  margin-left: 0;
   .lichsuve__content {
     .lichsuve-title {
       display: flex;
@@ -12,6 +14,8 @@
     }
     .table {
       height: 300px;
+      width: 850px;
+      margin-left: -50px;
     }
   }
   thead th {

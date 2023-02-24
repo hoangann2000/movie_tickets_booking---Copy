@@ -7,9 +7,9 @@ import "./CarouselHome.scss";
 import BannerTrailer from "./BannerTrailer/BannerTrailer";
 
 export default function CarouselHome() {
-    const Trailer = [{ maTrailer: 1282, trailer: "uoKSzOuPcfY" },
-    { maTrailer: 1283, trailer: "kBY2k3G6LsM" },
-    { maTrailer: 1284, trailer: "NYH2sLid0Zc" },]
+    const Trailer = [{ maTrailer: 102, trailer: "Fva_W_AF0IM" },
+    { maTrailer: 103, trailer: "WWWDskI46Js" },
+    { maTrailer: 104, trailer: "xU47nhruN-Q" },]
     let [showTrailer, setShowtrailer] = useState();
     let [closeTrailer, setCloseTrailer] = useState(false);
     let [playButton, setPlayButton] = useState(true);
@@ -32,13 +32,13 @@ export default function CarouselHome() {
             return (
                 <div key={index}>
                     <div className="img__BG"
-                        style={{ ...contentStyle, backgroundImage: `url(${item.hinhAnh})`, position: "relative" }}
+                        style={{ ...contentStyle, backgroundImage: `url(${item.hinh_anh})`, position: "relative" }}
                     >
                         <div className="img_play_carousel">
                             {playButton ? <button onClick={() => {
                                 setCloseTrailer(true);
                                 setPlayButton(false);
-                                renderTrailer(item.maPhim)
+                                renderTrailer(item.ma_phim)
                             }}> <img
                                     className="img-fluid"
                                     style={{ height: "100px" }}

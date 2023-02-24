@@ -14,11 +14,11 @@ export default function Login() {
     const dispatch = useDispatch()
     const formik = useFormik({
         initialValues: {
-            taiKhoan: '',
+            email: '',
             matKhau: '',
         },
         validationSchema: Yup.object({
-            taiKhoan: Yup.string().required("Tài khoản không được để trống").min(6, "Tối thiểu đủ 6 kí tự").max(20, "Tối đa 10 kí tự"),
+            email: Yup.string().required("Tài khoản không được để trống").min(6, "Tối thiểu đủ 6 kí tự").max(50, "Tối đa 50 kí tự"),
             matKhau: Yup.string().required("Mật khẩu không được để trống"),
         }),
         onSubmit: values => {
@@ -30,7 +30,7 @@ export default function Login() {
         <Fragment>
             {/* <h1 className='title_login'>CHÀO MỪNG BẠN ĐẾN VỚI CINEMA MOVIE GROUP I</h1> */}
             <div className="login flex justify-center items-center">
-            
+
                 <div className='login_right'>
                     <div className="right_top">
                         <img src="./img/logomovie.png" alt="" />
@@ -39,18 +39,18 @@ export default function Login() {
                     <h1 className='title_right '>Đăng Nhập Thành Viên</h1>
                     <form onSubmit={formik.handleSubmit} className='form_login'>
                         <div className="form-group">
-                            <label htmlFor="taiKhoan">Tài Khoản</label>
+                            <label htmlFor="email">Email</label>
                             <input onChange={formik.handleChange}
-                                value={formik.values.taiKhoan} type="text" className="form-control" id="taiKhoan" name='taiKhoan' placeholder="Nhập tài khoản" />
-                            {formik.touched.taiKhoan && formik.errors.taiKhoan ? (
-                                <div className="text-danger">{formik.errors.taiKhoan}</div>
+                                value={formik.values.email} type="text" className="form-control" id="email" name='email' placeholder="Nhập Email" />
+                            {formik.touched.email && formik.errors.email ? (
+                                <div className="text-danger">{formik.errors.email}</div>
                             ) : null}
                         </div>
-                        <br/>
+                        <br />
                         <div className="form-group">
                             <label htmlFor="matKhau">Mật Khẩu</label>
                             <input onChange={formik.handleChange}
-                                value={formik.values.matKhau} type="text" className="form-control" id="matKhau" name='matKhau' placeholder="Nhập mật khẩu" />
+                                value={formik.values.matKhau} type="password" className="form-control" id="matKhau" name='matKhau' placeholder="Nhập mật khẩu" />
                             {formik.touched.matKhau && formik.errors.matKhau ? (
                                 <div className="text-danger">{formik.errors.matKhau}</div>
                             ) : null}

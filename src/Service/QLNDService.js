@@ -9,31 +9,31 @@ export class QLNDService extends ServicebaseAxios {
     dangNhapND = (thongTinDangNhap) => {
         return this.POST("/api/QuanLyNguoiDung/DangNhap", thongTinDangNhap);
     }
-    capNhapND = (thongTinCapNhap) => {
-        return this.PUT("/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung", thongTinCapNhap);
+    capNhapND = (taikhoan,thongTinCapNhap) => {
+        return this.PUT(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung/${taikhoan}`, thongTinCapNhap);
     }
     thongTinND = () => {
         return this.POST("/api/QuanLyNguoiDung/ThongTinTaiKhoan");
     }
     layDanhSachNguoiDung = (taikhoan = "") => {
         if (taikhoan.trim() != "") {
-            return this.GET(`api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${GPOUP_ID}&tuKhoa=${taikhoan}`)
+            return this.GET(`/api/QuanLyNguoiDung/LayDanhSachNguoiDung?email=${taikhoan}`)
         }
-        return this.GET(`api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${GPOUP_ID}`)
+        return this.GET(`/api/QuanLyNguoiDung/LayDanhSachNguoiDung`)
     }
     themNguoiDung = (values) => {
         return this.POST(`/api/QuanLyNguoiDung/ThemNguoiDung`, values)
     }
     xoaNguoiDung = (taikhoan) => {
-        return this.DELETE(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taikhoan}`)
+        return this.DELETE(`/api/QuanLyNguoiDung/XoaNguoiDung/${taikhoan}`)
     }
 
     layThongTinTaiKhoanAdmin = (taikhoan) => {
-        return this.POST(`/api/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${taikhoan}`)
+        return this.GET(`/api/QuanLyNguoiDung/ThongTinTaiKhoan/${taikhoan}`)
     }
 
-    capNhatThongTinNguoiDung = (values) => {
-        return this.POST(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`, values);
+    capNhatThongTinNguoiDung = (id,values) => {
+        return this.PUT(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung/${id}`, values);
     };
 }
 export const NDService = new QLNDService();

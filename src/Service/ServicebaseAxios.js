@@ -7,44 +7,44 @@ export default class ServicebaseAxios {
   GET = (url) => {
     return axios({
       method: "get",
-      url: `${URL_API}/${url}`,
-      headers: {
-        TokenCybersoft: TOKEN,
-      },
+      url: `${URL_API}${url}`,
+      // headers: {
+      //   Authorization: TOKEN,
+      // },
     });
   };
   POST = (url, thongtinND) => {
     return axios({
       method: "post",
-      url: `${URL_API}/${url}`,
+      url: `${URL_API}${url}`,
       data: thongtinND,
-      headers: {
-        TokenCybersoft: TOKEN,
-        "Authorization": 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
-      },
+      // headers: {
+      //   Authorization: TOKEN,
+      //   "Authorization": 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
+      // },
     });
   };
 
   DELETE = (url, id) => {
     return axios({
       method: "delete",
-      url: `${URL_API}/${url}`,
-      headers: {
-        TokenCybersoft: TOKEN,
-        "Authorization": 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
-      },
+      url: `${URL_API}${url}`,
+      // headers: {
+      //   Authorization: TOKEN,
+      //   "Authorization": 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
+      // },
     });
   };
 
   PUT = (url, thongtinND) => {
     return axios({
       method: "put",
-      url: `${URL_API}/${url}`,
+      url: `${URL_API}${url}`,
       data: thongtinND,
-      headers: {
-        TokenCybersoft: TOKEN,
-        "Authorization": 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
-      },
+      // headers: {
+      //   Authorization: TOKEN,
+      //   "Authorization": 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
+      // },
     });
   };
 

@@ -27,19 +27,17 @@ const EditUsers = (props) => {
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
-            taiKhoan: thongTinTaiKhoanAdmin.taiKhoan,
-            matKhau: thongTinTaiKhoanAdmin.matKhau,
-            hoTen: thongTinTaiKhoanAdmin.hoTen,
-            soDT: thongTinTaiKhoanAdmin.soDT,
+            // taiKhoan: thongTinTaiKhoanAdmin.taiKhoan,
+            mat_khau: thongTinTaiKhoanAdmin.matKhau,
+            ho_ten: thongTinTaiKhoanAdmin.hoTen,
+            so_dt: thongTinTaiKhoanAdmin.soDT,
             email: thongTinTaiKhoanAdmin.email,
-            maLoaiNguoiDung: thongTinTaiKhoanAdmin.maLoaiNguoiDung,
-
-            maNhom: GPOUP_ID,
+            // maLoaiNguoiDung: thongTinTaiKhoanAdmin.maLoaiNguoiDung,
         },
 
         onSubmit: (values) => {
-            values.maNhom = GPOUP_ID;
-            dispatch(capNhatThongTinNguoiDungAction(values));
+            dispatch(capNhatThongTinNguoiDungAction(props.match.params.id,values));
+            console.log(values)
         },
     });
 
@@ -82,17 +80,19 @@ const EditUsers = (props) => {
                     </Radio.Group>
                 </Form.Item>
                 <Form.Item label="Tài khoản">
-                    <Input disabled name="taiKhoan" onChange={formik.handleChange} value={formik.values.taiKhoan} />
+                    <Input disabled name="taiKhoan" 
+                    // onChange={formik.handleChange} 
+                    value={thongTinTaiKhoanAdmin.taiKhoan} />
                 </Form.Item>
                 <Form.Item label="Mật khẩu">
-                    <Input name="matKhau" onChange={formik.handleChange} value={formik.values.matKhau} />
+                    <Input name="mat_khau" onChange={formik.handleChange} value={formik.values.mat_khau} />
                 </Form.Item>
                 <Form.Item label="Họ tên">
-                    <Input name="hoTen" onChange={formik.handleChange} value={formik.values.hoTen} />
+                    <Input name="ho_ten" onChange={formik.handleChange} value={formik.values.ho_ten} />
                 </Form.Item>
 
                 <Form.Item label="SĐT">
-                    <Input name="soDT" onChange={formik.handleChange} value={formik.values.soDT} />
+                    <Input name="so_dt" onChange={formik.handleChange} value={formik.values.so_dt} />
                 </Form.Item>
 
                 <Form.Item label="Email">
@@ -100,7 +100,9 @@ const EditUsers = (props) => {
                 </Form.Item>
 
                 <Form.Item label="Loại người dùng" >
-                    <Select defaultValue="" onChange={handleChangeOption("maLoaiNguoiDung")} value={formik.values.maLoaiNguoiDung}>
+                    <Select defaultValue="" 
+                    // onChange={handleChangeOption("maLoaiNguoiDung")} 
+                    value={formik.values.maLoaiNguoiDung}>
                         <Select.Option value="KhachHang">Khách hàng</Select.Option>
                         <Select.Option value="QuanTri">Quản trị</Select.Option>
                     </Select>

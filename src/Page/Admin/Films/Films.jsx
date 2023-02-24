@@ -149,7 +149,7 @@ export default function Films() {
 
     return (
         <div>
-            <h3 className="text-4xl">Quản lý Phim</h3>
+            <h3 className="text-4xl text-center" style={{fontWeight: 700, lineHeight:1.3, letterSpacing:0.5, color: '#333333'}}>Quản lý Phim</h3>
             <Button
                 className="mb-5"
                 onClick={() => {
@@ -175,3 +175,4 @@ export default function Films() {
         </div>
     );
 }
+

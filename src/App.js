@@ -22,6 +22,10 @@ import ShowTime from "./Page/Admin/Films/Showtime/Showtime";
 import Users from "./Page/Admin/Users/Users";
 import AddUsers from "./Page/Admin/Users/AddUsers/AddUsers";
 import EditUsers from "./Page/Admin/Users/EditUsers/EditUsers";
+import test from "./Page/Admin/Films/test";
+import DateTime from "./Page/Admin/Revenue/DateTime/DateTime";
+import PhimRap from "./Page/Admin/Revenue/PhimRap/PhimRap";
+import TenPhim from "./Page/Admin/Revenue/TenPhim/TenPhim";
 
 
 export const history = createBrowserHistory()
@@ -34,7 +38,7 @@ function App() {
       <Route exact path="/detail/:id" component={DetailFilm} />
       <Usertemplate exact path="/register" Component={Register} />
       <Usertemplate exact path="/login" Component={Login} />
-      <CheckoutTemplate exact path="/checkout/:id" component={Checkout} />
+      <CheckoutTemplate exact path="/checkout/:tenRap/:id" component={Checkout} />
       <CheckoutTemplate exact path="/info" component={InfoAccount} />
       <Route exact path="/historyticket" component={InfoTicketBooked} />
 
@@ -48,6 +52,10 @@ function App() {
       <AdminTemplate exact path='/admin/users' Component={Users} />
       <AdminTemplate exact path='/admin/users/adduser' Component={AddUsers} />
       <AdminTemplate axact path='/admin/users/edituser/:id' Component={EditUsers} />
+
+      <AdminTemplate exact path={'/admin/revenue'} Component={DateTime}/>
+      <AdminTemplate exact path={'/admin/doanhthurap'} Component={PhimRap}/>
+      <AdminTemplate exact path={'/admin/doanhthuphim'} Component={TenPhim}/>
     </Router>
   );
 }

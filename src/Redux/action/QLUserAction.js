@@ -8,7 +8,7 @@ export const DangKyAction = (thongTinND) => {
     return async (dispatch2) => {
         try {
             const result = await NDService.dangKyND(thongTinND);
-            if (result.data.statusCode == 200) {
+            if (result.data.code == "OK200") {
                 await dispatch2({
                     type: DANG_KY,
                     dataDK: result.data.content
@@ -23,8 +23,8 @@ export const DangKyAction = (thongTinND) => {
                 history.push("/login");
             }
         } catch (error) {
-            console.log(error.response.data.content)
-            alert(`${error.response.data.content}`)
+            console.log(error.response.data.message)
+            alert(error.response.data.message)
         }
     }
 }
@@ -32,8 +32,9 @@ export const DangNhapAction = (thongTinND) => {
     return async (dispatch2) => {
         try {
             const result = await NDService.dangNhapND(thongTinND);
-            console.log(result, "đăng nhập")
-            if (result.data.statusCode == 200) {
+            // console.log(result.data.content.maLoaiNguoiDung)
+            // console.log(result)
+            if (result.data.code == "OK200") {
                 await dispatch2({
                     type: DANG_NHAP,
                     dataDN: result.data.content
@@ -45,7 +46,7 @@ export const DangNhapAction = (thongTinND) => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                if (result.maLoaiNguoiDung !== "KhachHang") {
+                if (result.data.content.loai_nguoi_dung !== "Khách Hàng") {
                     history.push("/admin");
                 } else {
                     history.push("/");
@@ -57,16 +58,16 @@ export const DangNhapAction = (thongTinND) => {
         }
     }
 }
-export const updateUser = (thongTinND) => {
+export const updateUser = (taikhoan,thongTinND) => {
     return async (dispatch2) => {
         try {
-            const result = await NDService.capNhapND(thongTinND);
-            console.log(result)
-            if (result.data.statusCode == 200) {
+            const result = await NDService.capNhapND(taikhoan,thongTinND);
+           
+            if (result.data.code == "OK200") {
                 await dispatch2({
                     type: CAP_NHAP,
                     dataCN: JSON.parse(result.config.data),
-                    token: result.config.headers.Authorization
+                    // token: result.config.headers.Authorization
                 });
                 await Swal.fire({
                     position: 'top-center',
@@ -82,12 +83,13 @@ export const updateUser = (thongTinND) => {
     }
 }
 
-export const capNhatThongTinNguoiDungAction = (values) => {
+export const capNhatThongTinNguoiDungAction = (id,values) => {
     return async () => {
         try {
             const result = await NDService.capNhatThongTinNguoiDung(
-                values
+                id,values
             );
+            console.log(result)
             await Swal.fire({
                 position: 'top-center',
                 icon: 'success',

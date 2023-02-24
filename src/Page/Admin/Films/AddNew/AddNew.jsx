@@ -24,16 +24,14 @@ const AddNew = () => {
             trailer: "",
             moTa: "",
             ngayKhoiChieu: "",
-            dangChieu: false,
-            sapChieu: false,
-            hot: false,
+            dangChieu: 0,
+            sapChieu: 0,
+            hot: 0,
             danhGia: 0,
             hinhAnh: {},
-            maNhom: GPOUP_ID,
         },
         onSubmit: (values) => {
-            // console.log(values);
-            values.maNhom = GPOUP_ID;
+            console.log(values);
             let formData = new FormData();
             for (let key in values) {
                 if (key !== "hinhAnh") {
@@ -47,7 +45,7 @@ const AddNew = () => {
     });
 
     const handleChangeDatePicker = (value) => {
-        let ngayKhoiChieu = moment(value).format("DD/MM/YYYY");
+        let ngayKhoiChieu = moment(value).format("YYYY/MM/DD");
         formik.setFieldValue("ngayKhoiChieu", ngayKhoiChieu);
     };
 
@@ -119,7 +117,7 @@ const AddNew = () => {
                     <Input name="moTa" onChange={formik.handleChange} />
                 </Form.Item>
                 <Form.Item label="Ngày khởi chiếu">
-                    <DatePicker format={"DD/MM/YYYY"} onChange={handleChangeDatePicker} />
+                    <DatePicker format={"YYYY/MM/DD"} onChange={handleChangeDatePicker} />
                 </Form.Item>
                 <Form.Item label="Đang chiếu" valuePropName="checked">
                     <Switch onChange={handleChangeSwitch("dangChieu")} />
@@ -149,7 +147,7 @@ const AddNew = () => {
                     <img style={{ width: 150, height: 150 }} src={imgSrc} alt="..." />
                 </Form.Item>
                 <Form.Item label="Tác vụ">
-                    <button type="submit" className="bg-blue-300 text-white p-2">
+                    <button type="submit" className="bg-blue-700 text-white p-2">
                         Thêm phim
                     </button>
                 </Form.Item>
