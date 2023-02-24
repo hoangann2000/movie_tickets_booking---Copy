@@ -49,6 +49,7 @@ function App() {
       <AdminTemplate path="/admin/films/edit/:id" exact Component={Edit} />
       <AdminTemplate exact path='/admin/films/showtime/:id' Component={ShowTime} />
 
+
       <AdminTemplate exact path='/admin/users' Component={Users} />
       <AdminTemplate exact path='/admin/users/adduser' Component={AddUsers} />
       <AdminTemplate axact path='/admin/users/edituser/:id' Component={EditUsers} />

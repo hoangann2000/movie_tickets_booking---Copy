@@ -1,3 +1,4 @@
+import { QuanLyDatVeServices } from "../../Service/QLDatVeServices";
 import { quanLyRapService } from "../../Service/ServiceQLRap";
 import { LAY_DS_RAP } from "./Type/QLRapType";
 export const layDSRap = (dispatch) => {
@@ -24,4 +25,22 @@ export const layLogoRap = async (setState) => {
     console.log(error)
   }
 }
+
+export const taoLichChieuAction = async (lichchieu) => {
+  try {
+    const result = await QuanLyDatVeServices.taoLichChieu(lichchieu)
+    console.log(result);
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+// export const layCupRapAction = async() => {
+//   try {
+//     const reslut = await quanLyRapService.layCupRap()
+//     console.log(reslut);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 

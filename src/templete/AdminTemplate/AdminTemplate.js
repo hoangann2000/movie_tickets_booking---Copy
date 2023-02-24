@@ -110,6 +110,9 @@ export const AdminTemplate = (props) => {
                       <Menu.Item key="11" icon={<FileOutlined />}>
                         <NavLink to="/admin/films/addnew">Thêm Phim</NavLink>
                       </Menu.Item>
+                      {/* <Menu.Item key="12" icon={<CalendarOutlined />}>
+                        <NavLink to="/admin/films/calender">Rạp phim</NavLink>
+                      </Menu.Item> */}
                     </SubMenu>
                     <SubMenu key="sub3" icon={<DollarOutlined />} title="Doanh Thu">
                       <Menu.Item key="3" icon={<CalendarOutlined />}>

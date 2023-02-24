@@ -25,5 +25,11 @@ export class QLRapService extends ServicebaseAxios {
     );
   };
 
+  layCupRap = () => {
+    return this.GET(
+      `/api/cumrap`
+    )
+  }
+
 }
 export const quanLyRapService = new QLRapService();

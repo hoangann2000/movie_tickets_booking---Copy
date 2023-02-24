@@ -7,11 +7,40 @@ import { NavLink } from 'react-router-dom'
 import Checkout from '../../../Checkout/Checkout'
 
 const ShowTime = ({ film }) => {
-    // console.log("========",film)
+    console.log("========",film)
+    const combinedfilm = [];
+    for(let i = 0;i<film.length; i++)  {
+        const currentfilm = film[i];
+        // kiểm tra xem mã lịch chiếu đã có trong currentLSDV chưa
+        const index = combinedfilm.findIndex(t => t.maRap === currentfilm.maRap)
+        if(index === -1) {
+            // nếu chưa tồn tại, thêm object vào 
+            const newfilm = {
+                diaChi: currentfilm.diaChi,
+                gia_thuong: currentfilm.gia_thuong,
+                gia_vip: currentfilm.gia_vip,
+                logo: currentfilm.logo,
+                maRap: currentfilm.maRap,
+                tenRap: currentfilm.tenRap,
+                lichChieu: [{
+                    maLichChieu: currentfilm.maLichChieu,
+                    ngayGioChieu: currentfilm.ngayGioChieu
+                  }]
+            }
+            combinedfilm.push(newfilm)
+        }else {
+            combinedfilm[index].lichChieu.push({
+                maLichChieu: currentfilm.maLichChieu,
+                    ngayGioChieu: currentfilm.ngayGioChieu
+            })
+        }
+    }
+
+    console.log("fix", combinedfilm)
     return (
         <div>
             <Tabs tabPosition='left' defaultActiveKey="1">
-                {film?.map((value, index) => {
+                {combinedfilm?.map((value, index) => {
                     return <Tabs.TabPane tab=
                         {<div style={{ color: 'black' }}>
                             <img className='mr-2' src={value.logo} width='50' height={50} alt="" />
@@ -28,11 +57,15 @@ const ShowTime = ({ film }) => {
                                 </div>
                                 <div className='lich-chieu'>
                                     <div className="row">
-                                          <NavLink to={`/checkout/${value.tenRap}/${value.maLichChieu}`}  className='col-md-3 col-sm-4 col-6' key={index}>
-                                                <p className='btn btn-time'>
-                                                    {moment(value.ngayGioChieu).format('hh:mm A')}
-                                                </p>
-                                            </NavLink>
+                                        {value.lichChieu.map((malchieu)=> {
+                                            return <NavLink to={`/checkout/${value.tenRap}/${malchieu.maLichChieu
+                                            }`}  className='col-md-3 col-sm-4 col-6' key={index}>
+                                            <p className='btn btn-time'>
+                                                {moment(malchieu.ngayGioChieu).format('hh:mm A')}
+                                            </p>
+                                        </NavLink>
+                                        })}
+                                          
                                     </div>
                                 </div>
                             </div>
